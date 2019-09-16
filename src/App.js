@@ -1,25 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+//Redux
+import store from './store';
+import {Provider} from 'react-redux';
+
+//Components
+import AgregarCita from './components/agregarCita';
+import ListadoCitas from './components/listadoCitas';
+
+function App() {  
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+
+      <div className="container">
+        <h1 className="text-center">Administrador de mascotas</h1 >
+        <div className="row">
+          <div className="col-md-6">
+            <AgregarCita />
+          </div>
+          <div className="col-md-6">
+            <ListadoCitas />
+          </div>
+        </div>
+      </div>
+    </Provider>
   );
 }
 
